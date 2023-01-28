@@ -1,0 +1,341 @@
+// NutUI主题定制
+
+// Base
+$primary-color: #0f8ee9;
+$primary-color-end: #0f8ee9;
+$help-color: #f5f5f5;
+$title-color: #1a1a1a;
+$title-color2: #666666;
+$text-color: #808080;
+$disable-color: #cccccc;
+$white: #fff;
+$black: #000;
+$padding-xs: 0.75rem;
+$font-family: PingFang SC, Microsoft YaHei, Helvetica, Hiragino Sans GB, SimSun, sans-serif;
+$animation-duration: 0.25s;
+$animation-timing-fun: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+$font-size-0: 0.625rem;
+$font-size-1: 0.75rem;
+$font-size-2: 0.875rem;
+$font-size-3: 1rem;
+$font-size-4: 1.125rem;
+$font-weight-bold: 400;
+$font-size-small: $font-size-1;
+$font-size-base: $font-size-2;
+$font-size-large: $font-size-3;
+$line-height-base: 1.5;
+$zindex-actionsheet: 10001;
+$body-background: #f6f6f6;
+$light-color: #f6f6f6;
+$font-size-base: $font-size-2;
+$font-size-small: $font-size-1;
+$shortpsd-background-color: rgba(245, 245, 245, 1);
+$shortpsd-border-color: #ddd;
+$shortpsd-error: rgba(242, 39, 12, 1);
+$shortpsd-forget: rgba(128, 128, 128, 1);
+$noticeBar-font-size: 0.875rem;
+$noticeBar-height: 2.5rem;
+$noticeBar-line-height: 1.5rem;
+$noticeBar-left-icon-width: 1rem;
+$noticeBar-right-icon-width: 1rem;
+$infinite-bottom-color: #c8c8c8;
+$rang-bg-color: rgba($primary-color, 0.5);
+$rang-bar-bg-color: linear-gradient(135deg, $primary-color 0%, $primary-color-end 100%);
+
+// Button
+$button-border-radius: 0.1875rem;
+$button-border-width: 0.0625rem;
+$button-default-bg-color: $white;
+$button-default-border-color: rgba(204, 204, 204, 1);
+$button-default-color: rgba(102, 102, 102, 1);
+$button-small-height: 1.75rem;
+$button-default-height: 2.375rem;
+$button-large-height: 3rem;
+$button-large-line-height: 2.875rem;
+$button-small-line-height: 1.625rem;
+$button-block-height: 3rem;
+$button-default-line-height: 2.25rem;
+$button-block-line-height: 2.875rem;
+$button-default-font-size: $font-size-2;
+$button-disabled-opacity: 0.68;
+$button-primary-color: $white;
+$button-primary-border-color: $primary-color;
+$button-primary-background-color: linear-gradient(
+  135deg,
+  $primary-color 0%,
+  $primary-color-end 100%
+);
+$button-info-color: $white;
+$button-info-border-color: rgba(73, 106, 242, 1);
+$button-info-background-color: linear-gradient(
+  315deg,
+  rgba(73, 143, 242, 1) 0%,
+  rgba(73, 101, 242, 1) 100%
+);
+$button-success-color: $white;
+$button-success-border-color: rgba(38, 191, 38, 1);
+$button-success-background-color: linear-gradient(
+  135deg,
+  rgba(38, 191, 38, 1) 0%,
+  rgba(39, 197, 48, 1) 45%,
+  rgba(40, 207, 63, 1) 83%,
+  rgba(41, 212, 70, 1) 100%
+);
+$button-danger-color: $white;
+$button-danger-border-color: rgba(250, 44, 25, 1);
+$button-danger-background-color: rgba(250, 44, 25, 1);
+$button-warning-color: $white;
+$button-warning-border-color: rgba(255, 158, 13, 1);
+$button-warning-background-color: linear-gradient(
+  135deg,
+  rgba(255, 158, 13, 1) 0%,
+  rgba(255, 167, 13, 1) 45%,
+  rgba(255, 182, 13, 1) 83%,
+  rgba(255, 190, 13, 1) 100%
+);
+$button-plain-background-color: #fff;
+$button-plain-background-color: $white;
+
+// Cell
+$cell-color: $title-color2;
+$cell-title-font: $font-size-2;
+$cell-title-desc-font: $font-size-1;
+$cell-desc-font: $font-size-2;
+$cell-desc-color: $disable-color;
+$cell-border-radius: 0.375rem;
+$cell-group-title-padding: 0 0.625rem;
+$cell-group-title-color: #909ca4;
+$cell-group-title-font-size: $font-size-2;
+$cell-group-title-line-height: 1.25rem;
+$cell-group-background-color: $white;
+
+// Icon
+$icon-height: 1.25rem;
+$icon-width: 1.25rem;
+$icon-line-height: 1.25rem;
+
+// Overlay
+$overlay-bg-color: rgba(0, 0, 0, 0.7);
+
+// Popup
+$popup-close-icon-margin: 1rem;
+$popup-border-radius: 1.25rem;
+
+// FixedNav
+$fixednav-bg-color: $white;
+$fixednav-font-color: $black;
+$fixednav-index: 201;
+$fixednav-btn-bg: linear-gradient(135deg, rgba(250, 25, 44, 1) 0%, rgba(250, 63, 25, 1) 100%);
+
+// Tabbar
+$tabbar-active-color: $primary-color;
+$tabbar-border-color: #eee;
+
+// Pagination
+$pagination-color: $primary-color;
+$pagination-font-size: $font-size-2;
+$pagination-item-border-color: #e4e7eb;
+$pagination-active-background-color: linear-gradient(
+  135deg,
+  rgba(250, 44, 25, 1) 0%,
+  rgba(250, 63, 25, 1) 44.59259259%,
+  rgba(250, 89, 25, 1) 83.40740741%,
+  rgba(250, 100, 25, 1) 100%
+);
+$pagination-disable-color: rgba(116, 116, 116, 0.31);
+$pagination-disable-background-color: #f7f8fa;
+$pagination-item-border-width: 0.0625rem;
+$pagination-item-border-radius: 0.125rem;
+$pagination-prev-next-padding: 0 0.6875rem;
+
+// Tabs
+$tabs-tab-smile-color: $primary-color;
+$tabs-titles-border-radius: 0;
+$tabs-titles-item-large-font-size: $font-size-3;
+$tabs-titles-item-font-size: $font-size-2;
+$tabs-titles-item-small-font-size: $font-size-1;
+$tabs-titles-item-color: $title-color;
+$tabs-titles-background-color: $help-color;
+$tabs-horizontal-tab-line-color: linear-gradient(
+  90deg,
+  $primary-color 0%,
+  rgba($primary-color, 0.15) 100%
+);
+$tabs-horizontal-titles-height: 2.875rem;
+$tabs-horizontal-titles-item-min-width: 3.125rem;
+$tabs-horizontal-titles-item-active-line-width: 2.5rem;
+$tabs-vertical-tab-line-color: linear-gradient(
+  180deg,
+  $primary-color 0%,
+  rgba($primary-color, 0.15) 100%
+);
+$tabs-vertical-titles-item-height: 2.5rem;
+$tabs-vertical-titles-item-active-line-height: 0.875rem;
+$tabs-vertical-titles-width: 6.25rem;
+
+// Range
+$range-max: #333333;
+
+// Calendar
+$calendar-primary-color: $primary-color;
+$calendar-choose-color: #fef6f6;
+$calendar-base-color: #333333;
+$calendar-disable-color: #d1d0d0;
+$calendar-title-font: $font-size-4;
+$calendar-base-font: $font-size-3;
+$calendar-text-font: $font-size-1;
+$calendar-day-font: 1.125rem;
+
+// Checkbox
+$checkbox-label-color: #1d1e1e;
+$checkbox-label-disable-color: #999;
+
+// InputNumber
+$inputnumber-icon-color: $title-color;
+$inputnumber-icon-void-color: $disable-color;
+$inputnumber-input-background-color: $help-color;
+$inputnumber-input-border-radius: 0.25rem;
+$inputnumber-input-width: 2.5rem;
+$inputnumber-icon-size: 1.25rem;
+
+// Input
+$input-border-bottom: #eaf0fb;
+$input-disabled-color: #c8c9cc;
+
+// Radio
+$radio-label-font-color: #1d1e1e;
+$radio-label-font-active-color: #f0250f;
+$radio-label-disable-color: #999;
+$radio-icon-disable-color: #d6d6d6;
+$radio-label-button-border-color: #f0250f;
+$radio-label-button-background: rgba(240, 37, 15, 0.05);
+
+// Rate
+$rate-icon-color: $primary-color;
+$rate-icon-void-color: $disable-color;
+
+// TextArea
+$textarea-font: $font-size-2;
+$textarea-height: 6.25rem;
+$textarea-limit-color: $text-color;
+$textarea-text-color: $title-color;
+$textarea-disabled-color: $disable-color;
+
+// Uploader
+$uploader-width: 6.25rem;
+$uploader-height: 6.25rem;
+$uploader-background: #f7f8fa;
+
+// BackTop
+$backtop-border-color: #e0e0e0;
+
+// Dialog
+$dialog-width: 18.5rem;
+$dialog-min-height: 9.75rem;
+$dialog-padding: 1.75rem 1.5rem 1rem 1.5rem;
+$dialog-header-height: 1.25rem;
+$dialog-header-color: rgba(38, 38, 38, 1);
+$dialog-content-margin: 1.25rem 0;
+$dialog-content-max-height: 16.75rem;
+$dialog-content-line-height: 1rem;
+$dialog-mask-z-index: 1050;
+$dialog-mask-background-color: rgba($black, 0.7);
+$dialog-outer-z-index: 2000;
+$dialog-outer-bordder-radius: 1.25rem;
+$dialog-vertical-footer-ok-margin-top: 0.625rem;
+$dialog-footer-button-min-width: 6.25rem;
+$dialog-footer-cancel-margin-right: 1.25rem;
+$dialog-footer-ok-max-width: 8rem;
+$dialog-border: 0.0625rem solid #e5e5e5;
+
+// Notify
+$notify-text-color: $white;
+$notify-padding: 0.75rem 0;
+$notify-font-size: 0.875rem;
+$notify-height: 2.75rem;
+$notify-base-background-color: linear-gradient(
+  135deg,
+  rgba(250, 44, 25, 1) 0%,
+  rgba(250, 63, 25, 1) 45%,
+  rgba(250, 89, 25, 1) 83%,
+  rgba(250, 100, 25, 1) 100%
+);
+$notify-primary-background-color: linear-gradient(
+  315deg,
+  rgba(73, 143, 242, 1) 0%,
+  rgba(73, 101, 242, 1) 100%
+);
+$notify-success-background-color: linear-gradient(
+  135deg,
+  rgba(38, 191, 38, 1) 0%,
+  rgba(39, 197, 48, 1) 45%,
+  rgba(40, 207, 63, 1) 83%,
+  rgba(41, 212, 70, 1) 100%
+);
+$notify-danger-background-color: rgba(250, 50, 25, 1);
+$notify-warning-background-color: linear-gradient(
+  135deg,
+  rgba(255, 93, 13, 1) 0%,
+  rgba(255, 154, 13, 1) 100%
+);
+
+// Switch
+$switch-close-bg-color: #ebebeb;
+$switch-close--cline-bg-color: #f0f0f0;
+
+// Step
+$step-wait-bg-color: #959fb1;
+
+// Avatar
+$avatar-square: 0.3125rem;
+$avatar-large-width: 3.75rem;
+$avatar-large-height: 3.75rem;
+$avatar-small-width: 2rem;
+$avatar-small-height: 2rem;
+$avatar-normal-width: 2.5rem;
+$avatar-normal-height: 2.5rem;
+
+// Price
+$price-big-size: 1.5rem;
+
+// Badge
+$badge-background-color: linear-gradient(135deg, $primary-color 0%, $primary-color-end 100%);
+$badge-font-size: $font-size-1;
+$badge-default-background-color: rgba(255, 255, 255, 1);
+
+// Tag
+$tag-font-size: 0.75rem;
+$tag-default-background-color: #000000;
+$tag-primary-background-color: #3460fa;
+$tag-success-background-color: #4fc08d;
+$tag-danger-background-color: linear-gradient(
+  135deg,
+  rgba(242, 20, 12, 1) 0%,
+  rgba(232, 34, 14, 1) 69.83950099728881%,
+  rgba(242, 77, 12, 1) 100%
+);
+$tag-warning-background-color: #f3812e;
+$tag-default-color: #ffffff;
+$tag-border-width: 0.0625rem;
+$tag-plain-background-color: #fff;
+$tag-plain-color: rgb(250, 36, 0);
+
+// Popover
+$popover-white-background-color: rgba(255, 255, 255, 1);
+$popover-dark-background-color: rgba(75, 76, 77, 1);
+$popover-border-bottom-color: rgba(229, 229, 229, 1);
+$popover-primary-text-color: rgba(51, 51, 51, 1);
+$popover-disable-color: rgba(154, 155, 157, 1);
+
+// Address
+$address-region-tab-line: linear-gradient(90deg, $primary-color 0%, $primary-color-end 100%);
+
+// Signature
+$signature-border-color: #dadada;
+
+// list&&info
+$border-color: #f2f2f2;
+$text-font-size: 0.875rem;
+$text-line-height: 1.5;
+$title-font-size: 1rem;
+$loading-background-color: rgba(0, 0, 0, 0.8);

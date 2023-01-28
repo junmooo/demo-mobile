@@ -1,0 +1,7 @@
+.flex_box {
+  display: flex;
+}
+
+.flex_item {
+  display: block;
+}

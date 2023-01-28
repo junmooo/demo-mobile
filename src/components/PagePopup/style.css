@@ -1,0 +1,22 @@
+.page_popup_content_wrapper {
+  overflow: auto;
+  background-color: #ffffff;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 2010;
+  left: 0;
+  top: 0;
+  transition-duration: 200ms;
+  transition-property: transform;
+  -webkit-transform: translate(100%, 0);
+  -ms-transform: translate(100%, 0);
+  transform: translate(100%, 0);
+  -webkit-overflow-scrolling: touch;
+}
+
+.page_popup_wrapper.popup_show .page_popup_content_wrapper {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+}

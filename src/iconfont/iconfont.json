@@ -1,0 +1,72 @@
+{
+  "id": "3798811",
+  "name": "approval-mobile",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1288113",
+      "name": "check",
+      "font_class": "check",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "8106224",
+      "name": "down",
+      "font_class": "down",
+      "unicode": "e69b",
+      "unicode_decimal": 59035
+    },
+    {
+      "icon_id": "2472131",
+      "name": "401",
+      "font_class": "unauthorized",
+      "unicode": "e684",
+      "unicode_decimal": 59012
+    },
+    {
+      "icon_id": "2472133",
+      "name": "404",
+      "font_class": "not-found",
+      "unicode": "e683",
+      "unicode_decimal": 59011
+    },
+    {
+      "icon_id": "113714",
+      "name": "无结果",
+      "font_class": "no-result",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "1210594",
+      "name": "unchecked",
+      "font_class": "unchecked",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "5466019",
+      "name": "checked",
+      "font_class": "checked",
+      "unicode": "e70f",
+      "unicode_decimal": 59151
+    },
+    {
+      "icon_id": "10928218",
+      "name": "success",
+      "font_class": "success",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "13895858",
+      "name": "add_failed_16_16",
+      "font_class": "failed",
+      "unicode": "e660",
+      "unicode_decimal": 58976
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+@import './theme/custom_theme.scss';
+/* nutui样式自定义 */
+
+/* menu组件 */
+.nut-menu .nut-menu__bar .nut-menu__item .nut-menu__title {
+  color: $title-color2;
+}
+.nut-menu .nut-menu__bar {
+  box-shadow: none !important;
+}
+.nut-menu .nut-menu__bar .nut-menu__item.active .nut-menu__title {
+  color: $primary-color !important;
+}
+.nut-menu-item__content .nut-menu-item__option.active {
+  color: $primary-color !important;
+  & > * {
+    color: $primary-color !important;
+  }
+}
+
+/* dialog */
+body {
+  .nut-dialog__mask,
+  .nut-dialog__wrap {
+    z-index: 2050;
+  }
+}
+.nut-dialog__wrap {
+  .nut-dialog {
+    padding: 0;
+    .nut-dialog__header {
+      padding: 0.625rem 0.9375rem;
+      height: initial;
+      border-bottom: $dialog-border;
+    }
+    .nut-dialog__content {
+      padding: 0 0.9375rem;
+    }
+    .nut-dialog__footer {
+      border-top: $dialog-border;
+      .d_cancel_btn,
+      .d_confirm_btn {
+        flex: 1;
+        border: none;
+      }
+      .d_cancel_btn {
+        border-right: $dialog-border;
+      }
+      .d_confirm_btn {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+/* 在dialog中的input组件 */
+.nut-dialog__wrap .nut-dialog__outer {
+  border-radius: 0.1875rem;
+  .nut-dialog {
+    .nut-input {
+      padding: 0.625rem;
+      background-color: #f7f7f7;
+    }
+  }
+}
+
+/* button组件 */
+.nut-button.nut-button--default {
+  /* 默认文本颜色为黑色 */
+  color: $black;
+}
+
+.nut-navbar .nut-navbar__left .nut-icon-left:before {
+  color: $primary-color !important;
+}
+
+.nut-navbar .nut-navbar__left .nut-navbar__text {
+  color: $primary-color;
+}
+
+.nut-navbar .nut-navbar__title .title {
+  font-size: $title-font-size;
+  color: $black;
+}
