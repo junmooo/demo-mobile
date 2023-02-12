@@ -1,8 +1,5 @@
-import merge from 'lodash.merge';
-import dev from './dev';
-import production from './production';
-import test from './test';
-import uat from './uat';
+import merge from "lodash.merge";
+import dev from "./dev";
 
 export type ConfigType = {
   /** @name api域名 */
@@ -18,22 +15,19 @@ export type ConfigType = {
 };
 
 const baseConfig: Partial<ConfigType> = {
-  API_BASR_URL: 'https://some-domain.com',
-  API_PREFIX: '/api',
-  JWT_LOCALSTORAGE_KEY: 'Authorization',
-  LANG_LOCALSTORAGE_KEY: 'Lang',
+  API_BASR_URL: "https://some-domain.com",
+  API_PREFIX: "/api",
+  JWT_LOCALSTORAGE_KEY: "Authorization",
+  LANG_LOCALSTORAGE_KEY: "Lang",
 };
 
 export default (function () {
   switch (process.env.REACT_APP_ENV) {
-    case 'dev':
+    case "dev":
       return merge(baseConfig, dev);
-    case 'test':
+    case "test":
       return merge(baseConfig, test);
-    case 'uat':
-      return merge(baseConfig, uat);
-    case 'production':
-      return merge(baseConfig, production);
+    case "uat":
     default:
       return baseConfig;
   }

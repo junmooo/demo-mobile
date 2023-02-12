@@ -19,8 +19,4 @@
 yarn install  # install package
 
 yarn start  # start app
-
-# view http://localhost:3000/#/approval?language=zh_CN&easyToken=XXXX
-# language值可以是en_US或zh_CN
-# 获取token：https://uatapp02.easyhro.com/WebMobile/auth/getTokenUser?clientCode=astcorehr&username=H7217851
 ```

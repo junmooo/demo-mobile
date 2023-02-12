@@ -1,7 +1,8 @@
+/* eslint-disable import/no-anonymous-default-export */
 // https://github.com/dilanx/craco/blob/master/packages/craco/README.md#configuration-file
 // https://www.npmjs.com/package/craco-babel-loader
-import path from 'path';
-import config from './src/config';
+import path from "path";
+import config from "./src/config";
 
 const pathResolve = (pathUrl: string) => path.join(__dirname, pathUrl);
 
@@ -9,18 +10,18 @@ export default async function () {
   return {
     webpack: {
       alias: {
-        '@': pathResolve('./src'),
+        "@": pathResolve("./src"),
       },
     },
     // 代理接口
     devServer: {
       // https: true,
       proxy: config.proxy || {
-        '/api': {
-          target: `https://uatapp02.easyhro.com`,
+        "/api": {
+          target: `http://localhost:8080/`,
           changeOrigin: true,
           pathRewrite: {
-            '^/api': '',
+            "^/api": "",
           },
         },
       },
@@ -36,19 +37,19 @@ export default async function () {
     babel: {
       plugins: [
         [
-          'import',
+          "import",
           {
-            libraryName: '@nutui/nutui-react',
-            libraryDirectory: 'dist/esm',
+            libraryName: "@nutui/nutui-react",
+            libraryDirectory: "dist/esm",
             style: true,
             camel2DashComponentName: false,
           },
-          'nutui-react',
+          "nutui-react",
         ],
         [
-          'formatjs',
+          "formatjs",
           {
-            idInterpolationPattern: '[sha512:contenthash:base64:6]',
+            idInterpolationPattern: "[sha512:contenthash:base64:6]",
             ast: true,
           },
         ],
