@@ -77,9 +77,6 @@ const QuestionPage = () => {
     updateCurrentIndex(index - 1);
   };
 
-  const replaceDiagonalNwithBr = (str) => {
-    return "".replaceAll("\n", "<br/>");
-  };
   const contentRender = useCallback(() => {
     return data?.map((item, index) => {
       return (
