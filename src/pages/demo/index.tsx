@@ -1,13 +1,24 @@
-import React, { useEffect, useState } from "react";
-import styles from "./demo.module.scss";
-import { useIntl } from "react-intl";
-
+import React from "react";
+import TinderCard from "react-tinder-card";
 interface Iprops {}
 
 const Demo = React.memo(function Demo(props: Iprops) {
-  const intl = useIntl();
+  const onSwipe = (direction: string) => {
+    console.log("You swiped: " + direction);
+  };
 
-  return <div className={styles.container}>hello</div>;
+  const onCardLeftScreen = (myIdentifier: string) => {
+    console.log(myIdentifier + " left the screen");
+  };
+  return (
+    <TinderCard
+      onSwipe={onSwipe}
+      onCardLeftScreen={() => onCardLeftScreen("fooBar")}
+      preventSwipe={["right", "left"]}
+    >
+      Hello, World!
+    </TinderCard>
+  );
 });
 
 export default Demo;

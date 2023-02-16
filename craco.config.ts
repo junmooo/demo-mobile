@@ -3,6 +3,7 @@
 // https://www.npmjs.com/package/craco-babel-loader
 import path from "path";
 import config from "./src/config";
+const CracoLessPlugin = require("craco-less");
 
 const pathResolve = (pathUrl: string) => path.join(__dirname, pathUrl);
 
@@ -26,25 +27,19 @@ export default async function () {
         },
       },
     },
-    style: {
-      sass: {
-        loaderOptions: {
-          sourceMap: true,
-          additionalData: `@import "@nutui/nutui-react/dist/styles/variables.scss";@import "./src/theme/custom_theme.scss";` /* Any sass-loader configuration options: https://github.com/webpack-contrib/sass-loader. */,
-        },
+    plugins: [
+      {
+        plugin: CracoLessPlugin,
       },
-    },
+    ],
     babel: {
       plugins: [
         [
           "import",
           {
-            libraryName: "@nutui/nutui-react",
-            libraryDirectory: "dist/esm",
-            style: true,
-            camel2DashComponentName: false,
+            libraryName: "zarm",
+            style: true, // or 'css'
           },
-          "nutui-react",
         ],
         [
           "formatjs",

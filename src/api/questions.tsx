@@ -1,12 +1,24 @@
+import { Question } from "@/custom_types/question";
 import request from "./axios";
 
-export async function addQuestions(params: Question) {
-  const res = await request({
-    url: `/api/interview/addQuestion`,
+export async function addOrUpdateQuestion(params: Question) {
+  return await request({
+    url: `/api/interview/addOrUpdateQuestion`,
     method: "post",
     data: params,
   });
-  if (res.data.retStatus === 1) {
-    return Promise.resolve(res?.data?.data || {});
-  }
+}
+export async function questions(params: Question) {
+  return await request({
+    url: `/api/interview/questions`,
+    method: "post",
+    data: params,
+  });
+}
+export async function deleteQuestion(params: Question) {
+  return await request({
+    url: `/api/interview/deleteQuestion`,
+    method: "get",
+    params,
+  });
 }

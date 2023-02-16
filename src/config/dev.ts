@@ -1,11 +1,9 @@
 import type { ConfigType } from "./index";
 
 export default {
-  API_BASR_URL: `https://localhost:8080/`,
-  JWT_LOCALSTORAGE_KEY: "dev_Authorization",
   proxy: {
     "/api": {
-      target: `http://localhost:8080/`,
+      target: `http://localhost:8088/`,
       changeOrigin: true,
       pathRewrite: {
         "^/api": "/",

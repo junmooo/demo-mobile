@@ -1,0 +1,105 @@
+.background-image {
+  background: url("/iconfont/svg/bg.jpeg");
+  background-size: cover;
+  z-index: -1000;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: blur(1px) brightness(100%) opacity(20%);
+
+
+}
+
+.ctn {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  .empty {
+    left: calc(50% - 30px);
+    top: calc(50%);
+    position: fixed;
+  }
+
+  .quest-ctn {
+    display: flex;
+    height: 75vh;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+
+    .tinder-card {
+      position: absolute;
+    }
+
+    .carousel-item {
+      margin-top: 30px;
+      display: flex;
+      height: 72vh;
+      width: 90vw;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: column;
+      background-color: rgb(251, 246, 224);
+      border-radius: 10px;
+      white-space: pre-wrap;
+      font-size: 20px;
+
+      .question {
+        padding: 20px 20px;
+        width: 90%;
+        color: darkorange;
+      }
+
+      .answer {
+        margin: 20px 0 40px;
+        padding: 20px 20px;
+        width: 90%;
+        color: cornflowerblue;
+      }
+    }
+  }
+
+  .btn-group {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: cornflowerblue;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .title {
+      font-size: 26px;
+      color: #11AA66;
+      margin: 20px 0 0 40px;
+      height: 40px;
+      line-height: 40px;
+    }
+
+    .menu {
+      height: 40px;
+      line-height: 40px;
+      margin: 20px 40px 0 0;
+      width: 150px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 40px;
+    margin-bottom: 40px;
+  }
+}

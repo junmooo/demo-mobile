@@ -1,7 +1,6 @@
-import appConfig from '@/config';
-import { Toast } from '@nutui/nutui-react';
-import axios from 'axios';
-import { myIntl } from '@/locale';
+import axios from "axios";
+import { myIntl } from "@/locale";
+import { Toast } from "zarm";
 
 const pendingMap = new Map();
 
@@ -23,8 +22,8 @@ type Config = {
 function getPendingKey(config: Config) {
   const { url, method, params } = config || {};
   let { data } = config || {};
-  if (typeof data === 'string') data = JSON.parse(data); // response里面返回的config.data是个字符串对象
-  return [url, method, JSON.stringify(params), JSON.stringify(data)].join('&');
+  if (typeof data === "string") data = JSON.parse(data); // response里面返回的config.data是个字符串对象
+  return [url, method, JSON.stringify(params), JSON.stringify(data)].join("&");
 }
 
 /**
@@ -55,9 +54,12 @@ function removePending(config: Config) {
   }
 }
 
-function request(axiosConfig: Config, customOptions?: { repeat_request_cancel: boolean }) {
+function request(
+  axiosConfig: Config,
+  customOptions?: { repeat_request_cancel: boolean }
+) {
   const service = axios.create({
-    baseURL: '/',
+    baseURL: "/",
     timeout: 60000,
   });
 
@@ -66,7 +68,7 @@ function request(axiosConfig: Config, customOptions?: { repeat_request_cancel: b
     {
       repeat_request_cancel: true, // 是否开启取消重复请求, 默认为 true
     },
-    customOptions,
+    customOptions
   );
 
   service.interceptors.request.use(
@@ -74,48 +76,30 @@ function request(axiosConfig: Config, customOptions?: { repeat_request_cancel: b
       removePending(config);
       custom_options.repeat_request_cancel && addPending(config);
       // 自动携带token
-      if (
-        // config.method?.toUpperCase() === 'GET' &&
-        localStorage.getItem(appConfig.JWT_LOCALSTORAGE_KEY) &&
-        typeof window !== 'undefined'
-      ) {
-        config.url += config.url && config.url.indexOf('?') >= 0 ? '&' : '?';
-        config.url +=
-          'easyToken=' +
-          localStorage.getItem(appConfig.JWT_LOCALSTORAGE_KEY) +
-          '&language=' +
-          localStorage.getItem(appConfig.LANG_LOCALSTORAGE_KEY);
-        // 修复 从 local Storage 中拿的数据带引号的问题
-        config.url = config.url?.replaceAll('"', '');
-      }
+      config.headers.token = "token";
       return config;
     },
     (error) => {
       return Promise.reject(error);
-    },
+    }
   );
 
   service.interceptors.response.use(
     (response) => {
-      // response.data.retStatus = '0';
       removePending(response.config);
-      if (response?.data.errmsg === 'token is out of date') {
-        Toast.fail(myIntl.formatMessage({ id: 'tokenOut' }), { duration: 5 });
-        response.data.retStatus = '-1';
-      }
-      if (response.data.retStatus !== '1' && response.data.retStatus !== '-1') {
-        Toast.fail(response?.data.errmsg || myIntl.formatMessage({ id: 'sysErr' }), {
-          duration: 5,
+      if (response.data.code !== 1) {
+        Toast.show({
+          content: response?.data.msg || myIntl.formatMessage({ id: "sysErr" }),
+          stayTime: 3000,
         });
-        // Toast.fail(response?.data.errmsg || '网络错误', { duration: 5 });
         return Promise.reject(response.data);
       }
-      return response;
+      return response.data;
     },
     (error) => {
       error.config && removePending(error.config);
       return Promise.reject(error);
-    },
+    }
   );
 
   return service(axiosConfig);
