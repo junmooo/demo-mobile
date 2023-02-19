@@ -1,15 +1,19 @@
 import NotFound from "@/pages/NotFound";
 import type { RouteObject } from "react-router-dom";
 import { Navigate } from "react-router-dom";
-import demo from "./module/demo";
+import home from "./module/home";
+import upload from "./module/upload";
 import questions from "./module/questions";
+import login from "./module/login";
 
 const routeConfig = [
+  ...login,
+  ...upload,
   ...questions,
-  ...demo,
+  ...home,
   {
     path: "/",
-    element: <Navigate to="/demo" replace />,
+    element: <Navigate to="/home" replace />,
   },
   {
     path: "*",

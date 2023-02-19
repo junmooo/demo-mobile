@@ -1,11 +1,11 @@
 import React from "react";
 import type { RouteObject } from "react-router-dom";
 
-const Demo = React.lazy(() => import("@/pages/demo/"));
+const Home = React.lazy(() => import("@/pages/home"));
 
 export default [
   {
-    path: "/demo",
-    element: <Demo />,
+    path: "/home",
+    element: <Home />,
   },
 ] as RouteObject[];

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { myIntl } from "@/locale";
 import { Toast } from "zarm";
+import Cookies from "js-cookie";
 
 const pendingMap = new Map();
 
@@ -76,7 +77,7 @@ function request(
       removePending(config);
       custom_options.repeat_request_cancel && addPending(config);
       // 自动携带token
-      config.headers.token = "token";
+      config.headers.token = Cookies.get("token");
       return config;
     },
     (error) => {
@@ -87,18 +88,30 @@ function request(
   service.interceptors.response.use(
     (response) => {
       removePending(response.config);
-      if (response.data.code !== 1) {
+      if (response?.data?.code !== 1) {
         Toast.show({
           content: response?.data.msg || myIntl.formatMessage({ id: "sysErr" }),
           stayTime: 3000,
         });
-        return Promise.reject(response.data);
       }
       return response.data;
     },
     (error) => {
       error.config && removePending(error.config);
-      return Promise.reject(error);
+
+      console.log(error.response.status);
+
+      if (error.response.status === 403) {
+        Toast.show({
+          icon: "fail",
+          content: "token 失效",
+        });
+      } else {
+        Toast.show({
+          icon: "fail",
+          content: error.message || myIntl.formatMessage({ id: "sysErr" }),
+        });
+      }
     }
   );
 

@@ -31,8 +31,8 @@ const QuestionPage = () => {
   const { loading, run } = useRequest(getQuestions, {
     manual: true,
     onSuccess: (res) => {
-      setData(res.data);
-      setCurrentIndex(res.data?.length - 1);
+      res && setData(res.data);
+      res && setCurrentIndex(res.data?.length - 1);
     },
   });
 

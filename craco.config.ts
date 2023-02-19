@@ -33,6 +33,17 @@ export default async function () {
       },
     ],
     babel: {
+      presets: [
+        [
+          "@babel/preset-env",
+          {
+            targets: {
+              chrome: "49",
+              ios: "10",
+            },
+          },
+        ],
+      ],
       plugins: [
         [
           "import",
