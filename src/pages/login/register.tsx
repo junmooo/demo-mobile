@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./register.less";
 import { useBoolean } from "ahooks";
+import MyNavBar from "@/components/common/navbar";
 
 type registerType = {
   title?: string;
@@ -38,6 +39,7 @@ function Register(props: registerType) {
   }, [form, record]);
   return (
     <div className="rgst-ctn">
+      <MyNavBar title="注册" />
       <Form
         form={form}
         className="form-style"

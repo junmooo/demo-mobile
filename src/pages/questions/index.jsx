@@ -10,6 +10,7 @@ import empty from "@/iconfont/svg/empty.svg";
 import TinderCard from "react-tinder-card";
 import AddQuestion from "./modules/AddQuestion";
 import "./index.less";
+import MyNavBar from "@/components/common/navbar";
 import { useRequest } from "ahooks";
 import { questions, deleteQuestion } from "@/api/questions";
 import React from "react";
@@ -62,6 +63,7 @@ const QuestionPage = () => {
     if (loading || deleteLoading) {
       Loading.show({
         content: <ActivityIndicator size="lg" />,
+        stayTime: 3000,
       });
     } else {
       Loading.hide();
@@ -128,11 +130,12 @@ const QuestionPage = () => {
     <>
       <div className="background-image"></div>
       <div className="ctn">
+        <MyNavBar title="留言板" />
         <div className="empty">
           <img width={"60px"} src={empty} alt="empty" />
         </div>
         <div className="header">
-          <div className="title">八股练习册</div>
+          <div className="title">留言板</div>
           <div className="menu">
             <img width={"30px"} src={add} alt="add" onClick={toggle} />
             <img
@@ -166,13 +169,10 @@ const QuestionPage = () => {
           <img width={"40px"} src={back} alt="back" onClick={goBack} />
           <Radio.Group compact ghost type="button" size="md" defaultValue="2">
             <Radio value="0" onClick={() => run({ type: "01" })}>
-              WEB
+              我的
             </Radio>
             <Radio value="2" onClick={() => run({})}>
-              ALL
-            </Radio>
-            <Radio value="1" onClick={() => run({ type: "00" })}>
-              JAVA
+              全部
             </Radio>
           </Radio.Group>
           <img

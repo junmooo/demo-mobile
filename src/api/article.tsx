@@ -1,22 +1,21 @@
 import request from "./axios";
 
-export async function upload(params: FormData) {
+export async function save(params: any) {
   const res = await request({
-    url: `/api/file/upload`,
+    url: `/api/article/save`,
     method: "post",
     data: params,
   });
   if (res.code === 1) {
-    console.log(res);
     return Promise.resolve(res?.data || []);
   }
 }
-export async function uploads(params: FormData) {
-  console.log(15, params.entries().next());
+
+export async function all(params: any) {
   const res = await request({
-    url: `/api/file/uploads`,
-    method: "post",
-    data: params,
+    url: `/api/article/all`,
+    method: "get",
+    params,
   });
   if (res.code === 1) {
     return Promise.resolve(res?.data || []);

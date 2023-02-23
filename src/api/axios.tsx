@@ -4,7 +4,6 @@ import { Toast } from "zarm";
 import Cookies from "js-cookie";
 
 const pendingMap = new Map();
-
 /**
  * 生成每个请求唯一的键
  * @param {*} config
@@ -98,10 +97,8 @@ function request(
     },
     (error) => {
       error.config && removePending(error.config);
-
-      console.log(error.response.status);
-
-      if (error.response.status === 403) {
+      if (error.response?.status === 403) {
+        window.location.href = "/login";
         Toast.show({
           icon: "fail",
           content: "token 失效",

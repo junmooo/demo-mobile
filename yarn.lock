@@ -2343,6 +2343,11 @@
   resolved "https://registry.npmmirror.com/@types/lodash/-/lodash-4.14.190.tgz"
   integrity sha512-5iJ3FBJBvQHQ8sFhEhJfjUP+G+LalhavTkYyrAYqz5MEJG+erSv0k9KJLb6q7++17Lafk1scaTIFXcMJlwK8Mw==
 
+"@types/marked@^4.0.8":
+  version "4.0.8"
+  resolved "https://registry.npmmirror.com/@types/marked/-/marked-4.0.8.tgz#b316887ab3499d0a8f4c70b7bd8508f92d477955"
+  integrity sha512-HVNzMT5QlWCOdeuBsgXP8EZzKUf0+AXzN+sLmjvaB3ZlLqO+e4u0uXrdw9ub69wBKFs+c6/pA4r9sy6cCDvImw==
+
 "@types/mime@*":
   version "3.0.1"
   resolved "https://registry.npmmirror.com/@types/mime/-/mime-3.0.1.tgz"
@@ -2603,6 +2608,11 @@
   integrity sha512-KnJq9ZSqprWA6uNhWTUHZqTCh+rfa0j8ehTzqeBhktUPrmTj7yVOBvEQ/vSFU/7d72cGgWSsJ0f5T6GQCHXnvg==
   dependencies:
     "@use-gesture/core" "10.2.20"
+
+"@vavt/md-editor-extension@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.npmmirror.com/@vavt/md-editor-extension/-/md-editor-extension-1.5.0.tgz#a74fbf32a352670dad8d81a0f904510c66bd5ca7"
+  integrity sha512-WK8dYvYUnQkMTTxsNHtGbO9izjuzfwDtyYv67Hu0ot6iEMlF0fw2QCEji9f+cB9jdcGC0NAQFFpHQm76cih7zg==
 
 "@webassemblyjs/ast@1.11.1":
   version "1.11.1"
@@ -7249,6 +7259,11 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
+md-editor-rt@^2.8.1:
+  version "2.8.1"
+  resolved "https://registry.npmmirror.com/md-editor-rt/-/md-editor-rt-2.8.1.tgz#5ee855c31247b4a050b9626875f27e988edc7420"
+  integrity sha512-X1qbuGZtfOvvTyQCENQkqMARpvvoDqcP1plWrqIgfSv9asi/0kA66uSmOKrQy0kPNsFpSD/murPtu+hWtRg+QQ==
+
 mdn-data@2.0.14:
   version "2.0.14"
   resolved "https://registry.npmmirror.com/mdn-data/-/mdn-data-2.0.14.tgz"
@@ -7402,6 +7417,11 @@ mkdirp@~0.5.1:
   integrity sha512-FP+p8RB8OWpF3YZBCrP5gtADmtXApB5AMLn+vdyA+PyxCjrCs00mjyUozssO33cwDeT3wNGdLxJ5M//YqtHAJw==
   dependencies:
     minimist "^1.2.6"
+
+moment@^2.29.4:
+  version "2.29.4"
+  resolved "https://registry.npmmirror.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
+  integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
 
 ms@2.0.0:
   version "2.0.0"
