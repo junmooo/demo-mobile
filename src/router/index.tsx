@@ -4,14 +4,14 @@ import { Navigate } from "react-router-dom";
 import home from "./module/home";
 import article from "./module/article";
 import upload from "./module/upload";
-import questions from "./module/questions";
+import message from "./module/message";
 import login from "./module/login";
 
 const routeConfig = [
   ...article,
   ...login,
   ...upload,
-  ...questions,
+  ...message,
   ...home,
   {
     path: "/",

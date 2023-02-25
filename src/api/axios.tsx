@@ -1,6 +1,6 @@
 import axios from "axios";
 import { myIntl } from "@/locale";
-import { Toast } from "zarm";
+import { Toast } from "antd-mobile";
 import Cookies from "js-cookie";
 
 const pendingMap = new Map();
@@ -90,7 +90,7 @@ function request(
       if (response?.data?.code !== 1) {
         Toast.show({
           content: response?.data.msg || myIntl.formatMessage({ id: "sysErr" }),
-          stayTime: 3000,
+          duration: 3000,
         });
       }
       return response.data;
@@ -102,11 +102,15 @@ function request(
         Toast.show({
           icon: "fail",
           content: "token 失效",
+          duration: 3000,
         });
       } else {
+        console.log(error.message);
+
         Toast.show({
           icon: "fail",
           content: error.message || myIntl.formatMessage({ id: "sysErr" }),
+          duration: 3000,
         });
       }
     }

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable no-loop-func */
+import React, { useEffect, useRef, useState } from "react";
 import MdEditor from "md-editor-rt";
 import "md-editor-rt/lib/style.css";
 import { useLocation } from "react-router-dom";
@@ -12,6 +13,7 @@ import { useBoolean, useRequest } from "ahooks";
 import { save } from "@/api/article";
 import { toolbarsExclude } from "./contants";
 import ArticleNavbar from "./modules/ArticleNavbar";
+import ArticleConfirmDialog from "./modules/ArticleConfirmDialog";
 
 interface Iprops {}
 
@@ -19,9 +21,9 @@ const Article = React.memo(function Article(props: Iprops) {
   const location = useLocation();
   const [preview, { setFalse, setTrue }] = useBoolean(true);
   const [showDialog, { toggle }] = useBoolean(false);
-  const [text, setText] = useState("# Hello World");
+  const [text, setText] = useState("");
   const [id, setId] = useState("");
-  const [title, setTitle] = useState("未命名");
+  const [title, setTitle] = useState("");
 
   const { run: runSave } = useRequest(save, {
     manual: true,
@@ -117,26 +119,12 @@ const Article = React.memo(function Article(props: Iprops) {
           />
         </div>
       </div>
-      <Dialog
+      <ArticleConfirmDialog
         visible={showDialog}
-        actions={[
-          [
-            { key: "cancel", text: "取消", onClick: toggle },
-            { key: "confirm", text: "确认", onClick: onConfirm },
-          ],
-        ]}
-        content={
-          <div style={{ margin: "15px" }}>
-            <Input
-              placeholder="请输入标题"
-              defaultValue={title}
-              onChange={(val) => {
-                console.log(70, val);
-                setTitle(val);
-              }}
-            />
-          </div>
-        }
+        onCancel={toggle}
+        onConfirm={onConfirm}
+        title={title}
+        setTitle={setTitle}
       />
     </div>
   );

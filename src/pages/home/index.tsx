@@ -1,30 +1,51 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { TabBar } from "antd-mobile";
+import Article from "@/pages/article";
+import Message from "@/pages/message";
+import Upload from "@/pages/upload";
+
 import "./home.less";
+import { tabs } from "./contants";
 
-import { Button } from "antd-mobile";
-import MyNavBar from "@/components/common/navbar";
+const Home = () => {
+  const [activeKey, setActiveKey] = useState("article");
+  const [current, setCurrent] = useState(<Article />);
 
-interface Iprops {}
+  const setRouteActive = (value: string) => {
+    setActiveKey(value);
+    switch (value) {
+      case "article":
+        setCurrent(<Article />);
+        break;
+      case "message":
+        setCurrent(<Message />);
+        break;
+      case "upload":
+        setCurrent(<Upload />);
+        break;
+      case "me":
+        setCurrent(<Article />);
+        break;
+    }
+  };
 
-const Home = React.memo((props: Iprops) => {
-  const navigate = useNavigate();
-  return (
-    <>
-      <MyNavBar title="HOME" />
-      <div className="home-ctn">
-        <Button block onTouchEnd={() => navigate("/articles")}>
-          to aticles
-        </Button>
-        <Button block onTouchEnd={() => navigate("/question")}>
-          to question
-        </Button>
-        <Button block onTouchEnd={() => navigate("/upload")}>
-          upload photos
-        </Button>
-      </div>
-    </>
+  const bottom = (
+    <TabBar
+      safeArea
+      activeKey={activeKey}
+      onChange={(value) => setRouteActive(value)}
+    >
+      {tabs().map((item) => (
+        <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
+      ))}
+    </TabBar>
   );
-});
+  return (
+    <div className="home-ctn">
+      <div className="body">{current}</div>
+      <div className="bottom">{bottom}</div>
+    </div>
+  );
+};
 
 export default Home;

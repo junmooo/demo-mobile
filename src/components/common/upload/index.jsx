@@ -1,12 +1,12 @@
 import { useRef } from "react";
 import PropTypes from "prop-types";
 import "./index.less";
-import upload from "@/iconfont/svg/upload.svg";
 
 const Upload = (props) => {
   const myFilebutton = useRef();
 
   const {
+    uploadRef,
     formats,
     maxSize,
     onChange,
@@ -17,6 +17,7 @@ const Upload = (props) => {
     maxCount,
   } = props;
 
+  console.log(uploadRef);
   const beforeUpload = (files) => {
     if (files.length > maxCount) {
       return false;
@@ -30,8 +31,8 @@ const Upload = (props) => {
   // 选择一个文件时onchange时间被触发
   const fileSelected = () => {
     const files = myFilebutton.current.files;
-    if (!beforeUpload(files)) {
-      onCheck(`选取图片必须少于${maxCount}个, 且小于${maxSize}MB!`);
+    if (maxCount && maxSize && !beforeUpload(files)) {
+      onCheck(`选取文件必须少于${maxCount}个, 且小于${maxSize}MB!`);
       return;
     }
     onChange(files);
@@ -40,8 +41,8 @@ const Upload = (props) => {
   const uploadButton = (
     <div className="upload-btn-warp">
       <img
-        src={icon || upload}
-        style={{ width: iconSize || "35px" }}
+        src={icon || ""}
+        style={{ width: iconSize || "0px" }}
         alt="upload icon"
       />
     </div>
@@ -49,13 +50,21 @@ const Upload = (props) => {
 
   return (
     <div>
-      <div onClick={() => myFilebutton.current.click()}>{uploadButton}</div>
+      <div ref={uploadRef} onClick={() => myFilebutton.current.click()}>
+        {icon && (
+          <img
+            src={icon || ""}
+            style={{ width: iconSize || "0px" }}
+            alt="upload icon"
+          />
+        )}
+      </div>
       <input
         ref={myFilebutton}
         type="file"
         multiple={multiple}
         style={{ display: "none" }}
-        accept={formats.join(",")}
+        accept={formats && formats.join(",")}
         onChange={() => fileSelected()}
       />
     </div>
@@ -71,12 +80,13 @@ Upload.propTypes = {
   icon: PropTypes.string,
   iconSize: PropTypes.string,
   maxCount: PropTypes.number,
+  uploadRef: PropTypes.any,
 };
 
 Upload.defaultProps = {
   onChange: () => {},
   multiple: false,
-  onCheck: null,
+  onCheck: () => {},
   icon: null,
   iconSize: null,
   maxCount: 5,

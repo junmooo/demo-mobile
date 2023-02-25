@@ -46,13 +46,6 @@ export default async function () {
       ],
       plugins: [
         [
-          "import",
-          {
-            libraryName: "zarm",
-            style: true, // or 'css'
-          },
-        ],
-        [
           "formatjs",
           {
             idInterpolationPattern: "[sha512:contenthash:base64:6]",

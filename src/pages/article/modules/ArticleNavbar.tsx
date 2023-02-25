@@ -19,7 +19,7 @@ type Iprops = {
 const ArticleNavbar = (props: Iprops) => {
   const { onMenuClick, toggle, title } = props;
   const actions: Action[] = [
-    { key: "add", icon: <AddCircleOutline />, text: "新增" },
+    { key: "import", icon: <AddCircleOutline />, text: "导入" },
     { key: "edit", icon: <EditSOutline />, text: "修改" },
     { key: "delete", icon: <CloseCircleOutline />, text: "删除" },
     { key: "preview", icon: <EyeOutline />, text: "预览" },

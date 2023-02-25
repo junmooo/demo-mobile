@@ -38,7 +38,7 @@ const UploadFile = memo(() => {
   const onChange = async (files: File[]) => {
     Toast.show({
       icon: "loading",
-      duration: 10,
+      duration: 1000,
       content: "上传处理中…",
     });
     const m = 1024 * 1024;
@@ -87,7 +87,6 @@ const UploadFile = memo(() => {
         multiple={true}
         iconSize={"25px"}
         maxCount={MAX_FILES_COUNT}
-        // icon={cancel}
         onCheck={(msg) => {
           Toast.show({ icon: "fail", content: msg });
         }}
