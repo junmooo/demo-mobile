@@ -19,7 +19,7 @@ const AriticleList = React.memo(function NotFound() {
   const navigete = useNavigate();
   const [text, setText] = useState("");
   const [showDialog, { toggle }] = useBoolean(false);
-  const [title, setTitle] = useState("未命名");
+  const [title, setTitle] = useState("");
 
   const uploadRef = useRef<HTMLDivElement>();
   const { run: runSave } = useRequest(save, {
@@ -30,6 +30,7 @@ const AriticleList = React.memo(function NotFound() {
         duration: 2000,
         content: "保存成功",
       });
+      run({});
       toggle();
     },
   });
@@ -52,7 +53,7 @@ const AriticleList = React.memo(function NotFound() {
   const onMenuClick = (node: Action) => {
     if (node.key === "add") {
       navigete("/article", {
-        state: { item: { article: "# HELLO WORLD!", title: "未命名" } },
+        state: { item: { article: "# HELLO WORLD!", title: "" } },
       });
     }
     if (node.key === "import") {
@@ -67,16 +68,15 @@ const AriticleList = React.memo(function NotFound() {
     reader.onload = function () {
       const result = reader?.result as string;
       setText(result);
+      toggle();
     };
     reader.onerror = function () {
-      console.log("读取失败");
-      console.log(reader.error);
+      console.log("读取失败", reader.error);
     };
   };
 
   const onConfirm = () => {
     runSave({ article: text, title });
-    toggle();
   };
 
   const right = (

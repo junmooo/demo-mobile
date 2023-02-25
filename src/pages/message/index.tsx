@@ -1,7 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect, useRef, useMemo } from "react";
-import { Toast, Radio, Dialog } from "antd-mobile";
+import { Toast, Radio, Dialog, Switch } from "antd-mobile";
 import back from "@/iconfont/svg/back.svg";
+import restore from "@/iconfont/svg/restore.svg";
 import forward from "@/iconfont/svg/forward.svg";
 import add from "@/iconfont/svg/add.svg";
 import edit from "@/iconfont/svg/edit.svg";
@@ -14,6 +15,7 @@ import ContentRender from "./modules/TinderCard";
 import React from "react";
 import { Message } from "@/custom_types/message";
 import { useNavigate } from "react-router-dom";
+import { CloseOutline, CheckOutline } from "antd-mobile-icons";
 
 const MessagePage = () => {
   const [data, setData] = useState<Message[]>([]);
@@ -147,11 +149,16 @@ const MessagePage = () => {
           )}
         </div>
         <div className="actions">
-          <img width={"40px"} src={back} alt="back" onClick={goBack} />
-          <Radio.Group onChange={(val) => run({ type: val })} defaultValue="2">
-            <Radio value="00">我的</Radio>
-            <Radio value="01">全部</Radio>
-          </Radio.Group>
+          <img width={"40px"} src={restore} alt="back" onClick={goBack} />
+          <Switch
+            defaultChecked={true}
+            onChange={(val) => {
+              const type = val ? "00" : "01";
+              run({ type });
+            }}
+            checkedText={<CheckOutline fontSize={18} />}
+            uncheckedText={<CloseOutline fontSize={18} />}
+          />
           <img
             width={"40px"}
             src={forward}

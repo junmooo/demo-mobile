@@ -10,7 +10,6 @@ import {
   List,
   Input,
 } from "antd-mobile";
-import closeIcon from "@/iconfont/svg/close.svg";
 import { CardStyle, Message } from "@/custom_types/message";
 import { CloseOutline, CheckOutline } from "antd-mobile-icons";
 import "./add-message.less";
@@ -44,7 +43,7 @@ const AddMessage = memo(() => {
     manual: true,
     onSuccess: () => {
       Toast.show({ icon: "sccuess", content: "添加成功", duration: 2000 });
-      navigate(-1);
+      navigate("/home", { state: { key: "message" } });
     },
   });
 
@@ -61,15 +60,27 @@ const AddMessage = memo(() => {
   return (
     <>
       <div className="add-msg-ctn">
-        <MyNavBar title="ADD MESSAGE" />
+        <MyNavBar
+          title="ADD MESSAGE"
+          back={() => navigate("/home", { state: { key: "message" } })}
+        />
         <div className="text">
           <TextArea
-            maxLength={1000}
+            maxLength={200}
             showCount
             placeholder="请输入"
-            autoSize={{ minRows: 7, maxRows: 15 }}
+            autoSize={{ minRows: 4, maxRows: 6 }}
             value={content}
-            onChange={(value: string | undefined) => setContent(value)}
+            onChange={(value: string | undefined) => {
+              if (
+                typeof value === "string" &&
+                value?.split("\n").length <= 11
+              ) {
+                setContent(value);
+              } else {
+                Toast.show("最多不超过12行!");
+              }
+            }}
           />
         </div>
         <div className="pram-ctn">
@@ -110,7 +121,6 @@ const AddMessage = memo(() => {
                 placeholder="请输入"
                 defaultValue={bgc}
                 onChange={(val) => {
-                  console.log(val);
                   setBgc(val);
                 }}
               />
@@ -121,7 +131,6 @@ const AddMessage = memo(() => {
                 placeholder="请输入"
                 defaultValue={ftc}
                 onChange={(val) => {
-                  console.log(val);
                   setFtc(val);
                 }}
               />
@@ -132,7 +141,6 @@ const AddMessage = memo(() => {
                 placeholder="请输入"
                 defaultValue={sdc}
                 onChange={(val) => {
-                  console.log(val);
                   setSdc(val);
                 }}
               />

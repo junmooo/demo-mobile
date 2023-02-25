@@ -1,15 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TabBar } from "antd-mobile";
 import Article from "@/pages/article";
 import Message from "@/pages/message";
 import Upload from "@/pages/upload";
-
 import "./home.less";
 import { tabs } from "./contants";
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
   const [activeKey, setActiveKey] = useState("article");
   const [current, setCurrent] = useState(<Article />);
+  const location = useLocation();
+
+  useEffect(() => {
+    const key = location?.state?.key;
+    key && setRouteActive(key);
+  }, [location]);
 
   const setRouteActive = (value: string) => {
     setActiveKey(value);

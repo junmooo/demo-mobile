@@ -1,22 +1,20 @@
 .home-ctn {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
 
   .top {
-    flex: 0;
     border-bottom: solid 1px var(--adm-color-border);
   }
 
   .body {
-    flex: 1;
     display: flex;
     justify-content: center;
     width: 100%;
   }
 
   .bottom {
-    flex: 0;
-    border-top: solid 1px var(--adm-color-border);
+    position: absolute; // 关键
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
   }
 }
