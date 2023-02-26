@@ -2,13 +2,13 @@ import MyNavBar from "@/components/common/navbar";
 import saveIcon from "@/iconfont/svg/save.svg";
 import menuIcon from "@/iconfont/svg/menu.svg";
 import {
-  AddCircleOutline,
   EditSOutline,
   CloseCircleOutline,
   EyeOutline,
 } from "antd-mobile-icons";
 import { Popover, Space } from "antd-mobile";
 import { Action } from "antd-mobile/es/components/popover";
+import { useNavigate } from "react-router-dom";
 
 type Iprops = {
   onMenuClick: (node: Action) => void;
@@ -17,9 +17,9 @@ type Iprops = {
 };
 
 const ArticleNavbar = (props: Iprops) => {
+  const navigate = useNavigate();
   const { onMenuClick, toggle, title } = props;
   const actions: Action[] = [
-    { key: "import", icon: <AddCircleOutline />, text: "导入" },
     { key: "edit", icon: <EditSOutline />, text: "修改" },
     { key: "delete", icon: <CloseCircleOutline />, text: "删除" },
     { key: "preview", icon: <EyeOutline />, text: "预览" },
@@ -45,7 +45,13 @@ const ArticleNavbar = (props: Iprops) => {
       </Space>
     </div>
   );
-  return <MyNavBar right={right} title={title} />;
+  return (
+    <MyNavBar
+      right={right}
+      title={title}
+      back={() => navigate("/home", { state: { key: "article" } })}
+    />
+  );
 };
 
 export default ArticleNavbar;

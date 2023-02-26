@@ -1,5 +1,5 @@
 import { addOrUpdate } from "@/api/message";
-import { useRequest } from "ahooks";
+import { useBoolean, useRequest } from "ahooks";
 import { memo, useEffect, useState } from "react";
 import {
   Toast,
@@ -9,12 +9,14 @@ import {
   Slider,
   List,
   Input,
+  Modal,
 } from "antd-mobile";
 import { CardStyle, Message } from "@/custom_types/message";
 import { CloseOutline, CheckOutline } from "antd-mobile-icons";
 import "./add-message.less";
 import { useLocation, useNavigate } from "react-router-dom";
 import MyNavBar from "@/components/common/navbar";
+import Color from "@/components/common/color";
 
 const AddMessage = memo(() => {
   const navigate = useNavigate();
@@ -86,7 +88,7 @@ const AddMessage = memo(() => {
         <div className="pram-ctn">
           <List>
             <List.Item>
-              <span className="pri-or-pub-label">是否公开</span>
+              <span className="item-label">是否公开</span>
               <Switch
                 defaultChecked={type === "00"}
                 onChange={(val) => {
@@ -101,7 +103,7 @@ const AddMessage = memo(() => {
               />
             </List.Item>
             <List.Item>
-              <span className="pri-or-pub-label">旋转角度</span>
+              <span className="item-label">旋转角度</span>
               <div>
                 <Slider
                   min={-10}
@@ -116,34 +118,13 @@ const AddMessage = memo(() => {
               </div>
             </List.Item>
             <List.Item>
-              <span className="pri-or-pub-label">背景颜色</span>
-              <Input
-                placeholder="请输入"
-                defaultValue={bgc}
-                onChange={(val) => {
-                  setBgc(val);
-                }}
-              />
-            </List.Item>
-            <List.Item>
-              <span className="pri-or-pub-label">字体颜色</span>
-              <Input
-                placeholder="请输入"
-                defaultValue={ftc}
-                onChange={(val) => {
-                  setFtc(val);
-                }}
-              />
-            </List.Item>
-            <List.Item>
-              <span className="pri-or-pub-label">阴影颜色</span>
-              <Input
-                placeholder="请输入"
-                defaultValue={sdc}
-                onChange={(val) => {
-                  setSdc(val);
-                }}
-              />
+              <span className="item-label">颜色:</span>
+              <span className="item-color">背景</span>
+              <Color bgc={bgc} onChange={(color) => setBgc(color.hex)} />
+              <span className="item-color">字体</span>
+              <Color bgc={ftc} onChange={(color) => setFtc(color.hex)} />
+              <span className="item-color">阴影</span>
+              <Color bgc={sdc} onChange={(color) => setSdc(color.hex)} />
             </List.Item>
           </List>
         </div>

@@ -1,16 +1,16 @@
 /* eslint-disable no-loop-func */
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import MdEditor from "md-editor-rt";
 import "md-editor-rt/lib/style.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./article.less";
 import FileUtils from "@/utils/file";
 import { upload } from "@/api/files";
-import { Dialog, Input, Toast } from "antd-mobile";
+import { Toast } from "antd-mobile";
 
 import { Action } from "antd-mobile/es/components/popover";
 import { useBoolean, useRequest } from "ahooks";
-import { save } from "@/api/article";
+import { save, del } from "@/api/article";
 import { toolbarsExclude } from "./contants";
 import ArticleNavbar from "./modules/ArticleNavbar";
 import ArticleConfirmDialog from "./modules/ArticleConfirmDialog";
@@ -24,6 +24,7 @@ const Article = React.memo(function Article(props: Iprops) {
   const [text, setText] = useState("");
   const [id, setId] = useState("");
   const [title, setTitle] = useState("");
+  const navigate = useNavigate();
 
   const { run: runSave } = useRequest(save, {
     manual: true,
@@ -36,6 +37,17 @@ const Article = React.memo(function Article(props: Iprops) {
       setId(res);
       setTrue();
       toggle();
+    },
+  });
+  const { run: runDel } = useRequest(del, {
+    manual: true,
+    onSuccess: (res) => {
+      Toast.show({
+        icon: "success",
+        duration: 2000,
+        content: "删除成功",
+      });
+      navigate("/home", { state: { key: "artcle" } });
     },
   });
 
@@ -58,6 +70,9 @@ const Article = React.memo(function Article(props: Iprops) {
     }
     if (node.key === "edit") {
       setFalse();
+    }
+    if (node.key === "delete") {
+      runDel({ id });
     }
   };
 

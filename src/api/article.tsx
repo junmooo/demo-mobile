@@ -21,3 +21,14 @@ export async function all(params: any) {
     return Promise.resolve(res?.data || []);
   }
 }
+
+export async function del(params: any) {
+  const res = await request({
+    url: `/api/article/del`,
+    method: "get",
+    params,
+  });
+  if (res.code === 1) {
+    return Promise.resolve(res?.data || []);
+  }
+}
