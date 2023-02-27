@@ -105,8 +105,6 @@ function request(
           duration: 3000,
         });
       } else {
-        console.log(error.message);
-
         Toast.show({
           icon: "fail",
           content: error.message || myIntl.formatMessage({ id: "sysErr" }),

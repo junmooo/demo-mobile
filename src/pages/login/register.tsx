@@ -1,10 +1,13 @@
-import { Button, Form, Input, Modal, Toast } from "antd-mobile";
+import { Button, Form, Input, Toast } from "antd-mobile";
 import auth from "@/api/login";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./register.less";
-import { useBoolean } from "ahooks";
+import avatarIcon from "@/iconfont/svg/avatar.svg";
 import MyNavBar from "@/components/common/navbar";
+import Upload from "@/components/common/upload";
+import { upload } from "@/api/files";
+import FileUtils from "@/utils/file";
 
 type registerType = {
   title?: string;
@@ -13,9 +16,11 @@ type registerType = {
 
 function Register(props: registerType) {
   const [form] = Form.useForm();
-  const { title, record } = props;
-
+  const { record } = props;
+  const uploadRef = useRef<HTMLDivElement>();
+  const [avatar, setAvatar] = useState("");
   const navigate = useNavigate();
+
   const onFinish = () => {
     form
       .validateFields()
@@ -54,13 +59,13 @@ function Register(props: registerType) {
         <Form.Header>注册信息</Form.Header>
         <Form.Item
           label="Username"
-          name="operName"
-          key={"operName"}
+          name="name"
+          key={"name"}
           rules={[
             { required: true, message: "Please input your username!" },
             {
               validator: async (_, value) => {
-                const res = await auth.getName({ operName: value });
+                const res = await auth.getName({ name: value });
                 return res?.data === null
                   ? Promise.resolve()
                   : Promise.reject("用户名被占用!");
@@ -73,8 +78,8 @@ function Register(props: registerType) {
 
         <Form.Item
           label="Password"
-          name="operPwd"
-          key={"operPwd"}
+          name="pwd"
+          key={"pwd"}
           rules={[{ required: true, message: "Please input your password!" }]}
         >
           <Input type="password" disabled={record ? true : false} />
@@ -82,8 +87,8 @@ function Register(props: registerType) {
 
         <Form.Item
           label="Email"
-          name="operEmail"
-          key={"operEmail"}
+          name="email"
+          key={"email"}
           rules={[{ required: true, message: "Please input your Email!" }]}
         >
           <Input />
@@ -95,6 +100,44 @@ function Register(props: registerType) {
 
         <Form.Item label="Remark" name="remark" key={"remark"}>
           <Input />
+        </Form.Item>
+        <Form.Item label="Avatar" name="avatar" key={"avatar"}>
+          <Upload
+            iconSize={"25px"}
+            uploadRef={uploadRef}
+            onChange={(res) => {
+              console.log("change");
+
+              const file = res[0];
+              const m = 1024 * 1024;
+              let quality = 1;
+              if (file.size > 8 * m) quality = 0.3;
+              else if (file.size > 5 * m) quality = 0.4;
+              else if (file.size > 2 * m) quality = 0.6;
+              const form = new FormData();
+              console.log("file", file, quality);
+              FileUtils.fileResizeToFile(file, quality, (res: File) => {
+                form.append("file", res);
+                console.log(form);
+                upload(form)
+                  .then((res) => {
+                    setAvatar(res.url);
+                  })
+                  .catch(() => {
+                    Toast.show("上传失败!");
+                  });
+              });
+            }}
+          />
+          <img
+            className="avatar"
+            src={avatar || avatarIcon}
+            onClick={() => {
+              console.log("hello");
+              uploadRef.current?.click();
+            }}
+            alt="avatar"
+          />
         </Form.Item>
       </Form>
     </div>

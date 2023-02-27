@@ -1,10 +1,10 @@
 type LoginParam = {
-  operName: string;
-  operPwd?: string;
+  name: string;
+  pwd?: string;
 };
 
 interface RegisterParam extends LoginParam {
   phoneNo?: string;
-  operEmail?: string;
+  email?: string;
   remark?: string;
 }

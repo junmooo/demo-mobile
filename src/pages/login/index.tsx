@@ -51,8 +51,8 @@ const Login: React.FC = () => {
       >
         <Form.Item
           label="Username"
-          name="operName"
-          key={"operName"}
+          name="name"
+          key={"name"}
           rules={[{ required: true, message: "Please input your username!" }]}
         >
           <Input />
@@ -60,8 +60,8 @@ const Login: React.FC = () => {
 
         <Form.Item
           label="Password"
-          name="operPwd"
-          key={"operPwd"}
+          name="pwd"
+          key={"pwd"}
           rules={[{ required: true, message: "Please input your password!" }]}
         >
           <Input type="password" />

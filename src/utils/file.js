@@ -64,7 +64,7 @@ function dataUrlToFile(dataUrl) {
 
 function fileResizeToFile(file, quality, fn) {
   if (quality === 1) {
-    return file;
+    fn(file);
   }
   fileToDataUrl(file, function (dataurl) {
     dataUrlToImage(dataurl, (image) => {
