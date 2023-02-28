@@ -3651,13 +3651,6 @@ color-name@^1.1.4, color-name@~1.1.4:
   resolved "https://registry.npmmirror.com/color-name/-/color-name-1.1.4.tgz"
   integrity sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==
 
-color-selector-react@^0.3.0-beta.2:
-  version "0.3.0-beta.2"
-  resolved "https://registry.npmmirror.com/color-selector-react/-/color-selector-react-0.3.0-beta.2.tgz#5896035b828ebdb5fdde9caae3e9a626b7a80025"
-  integrity sha512-bRN5L6ukzT9FCSONhKOa4sfU1n/lJ35XdiTDqJNFGQXLpD3yi+jjIBMq7Hh+0M1otedcFr6agGbHdGy7oxLvSA==
-  dependencies:
-    react-color "^2.19.3"
-
 colord@^2.9.1:
   version "2.9.3"
   resolved "https://registry.npmmirror.com/colord/-/colord-2.9.3.tgz"
@@ -7298,6 +7291,23 @@ mkdirp@~0.5.1:
   integrity sha512-FP+p8RB8OWpF3YZBCrP5gtADmtXApB5AMLn+vdyA+PyxCjrCs00mjyUozssO33cwDeT3wNGdLxJ5M//YqtHAJw==
   dependencies:
     minimist "^1.2.6"
+
+mobx-react-lite@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.npmmirror.com/mobx-react-lite/-/mobx-react-lite-3.4.0.tgz#d59156a96889cdadad751e5e4dab95f28926dfff"
+  integrity sha512-bRuZp3C0itgLKHu/VNxi66DN/XVkQG7xtoBVWxpvC5FhAqbOCP21+nPhULjnzEqd7xBMybp6KwytdUpZKEgpIQ==
+
+mobx-react@^7.6.0:
+  version "7.6.0"
+  resolved "https://registry.npmmirror.com/mobx-react/-/mobx-react-7.6.0.tgz#ebf0456728a9bd2e5c24fdcf9b36e285a222a7d6"
+  integrity sha512-+HQUNuh7AoQ9ZnU6c4rvbiVVl+wEkb9WqYsVDzGLng+Dqj1XntHu79PvEWKtSMoMj67vFp/ZPXcElosuJO8ckA==
+  dependencies:
+    mobx-react-lite "^3.4.0"
+
+mobx@^6.7.0:
+  version "6.8.0"
+  resolved "https://registry.npmmirror.com/mobx/-/mobx-6.8.0.tgz#59051755fdb5c8a9f3f2e0a9b6abaf86bab7f843"
+  integrity sha512-+o/DrHa4zykFMSKfS8Z+CPSEg5LW9tSNGTuN8o6MF1GKxlfkSHSeJn5UtgxvPkGgaouplnrLXCF+duAsmm6FHQ==
 
 moment@^2.29.4:
   version "2.29.4"

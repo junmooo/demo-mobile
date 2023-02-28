@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import "./index.less";
 import { save } from "@/api/article";
 
-import { UploadOutline, AddCircleOutline } from "antd-mobile-icons";
+import { AddCircleOutline } from "antd-mobile-icons";
 import moment from "moment";
 import menuIcon from "@/iconfont/svg/menu.svg";
 import MyNavBar from "@/components/common/navbar";

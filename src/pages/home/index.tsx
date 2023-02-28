@@ -6,6 +6,7 @@ import Upload from "@/pages/upload";
 import "./home.less";
 import { tabs } from "./contants";
 import { useLocation } from "react-router-dom";
+import Me from "../me";
 
 const Home = () => {
   const [activeKey, setActiveKey] = useState("article");
@@ -30,7 +31,7 @@ const Home = () => {
         setCurrent(<Upload />);
         break;
       case "me":
-        setCurrent(<Article />);
+        setCurrent(<Me />);
         break;
     }
   };

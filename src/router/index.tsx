@@ -6,6 +6,7 @@ import article from "./module/article";
 import upload from "./module/upload";
 import message from "./module/message";
 import login from "./module/login";
+import me from "./module/me";
 
 const routeConfig = [
   ...article,
@@ -13,6 +14,7 @@ const routeConfig = [
   ...upload,
   ...message,
   ...home,
+  ...me,
   {
     path: "/",
     element: <Navigate to="/home" replace />,

@@ -1,5 +1,6 @@
 import request from "@/api/axios";
 import { md5 } from "@/utils/md5";
+import store from "@/mobx";
 import Cookies from "js-cookie";
 
 const login = async (params: LoginParam) => {
@@ -9,12 +10,14 @@ const login = async (params: LoginParam) => {
     method: "POST",
     data: { ...params },
   });
+  console.log(res?.data.user);
 
+  store.setUserInfo(res?.data.user);
   Cookies.set("token", res?.data.token);
   return Promise.resolve(res?.data || {});
 };
 
-const register = async (params: RegisterParam) => {
+const register = async (params: UserInfo) => {
   params.pwd = md5(params.pwd || "");
   return await request({
     url: `/api/user/register`,
@@ -23,7 +26,7 @@ const register = async (params: RegisterParam) => {
   });
 };
 
-const getName = async (params: RegisterParam) => {
+const getName = async (params: UserInfo) => {
   return await request({
     url: `/api/user/getName`,
     method: "GET",

@@ -3,8 +3,9 @@ type LoginParam = {
   pwd?: string;
 };
 
-interface RegisterParam extends LoginParam {
+interface UserInfo extends LoginParam {
   phoneNo?: string;
   email?: string;
   remark?: string;
+  avatar?: string;
 }

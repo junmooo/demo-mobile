@@ -6,16 +6,16 @@ import ReactDOM from "react-dom";
 import { SafeArea } from "antd-mobile";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <div style={{ background: "#ace0ff" }}>
+  <div>
+    <div>
       <SafeArea position="top" />
     </div>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-    <div style={{ background: "#ffcfac" }}>
+    <div>
       <SafeArea position="bottom" />
     </div>
-  </React.StrictMode>,
+  </div>,
   document.getElementById("root")
 );

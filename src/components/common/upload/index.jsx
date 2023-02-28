@@ -16,8 +16,6 @@ const Upload = (props) => {
     iconSize,
     maxCount,
   } = props;
-
-  console.log(uploadRef);
   const beforeUpload = (files) => {
     if (files.length > maxCount) {
       return false;
