@@ -1,8 +1,7 @@
-import React from 'react';
-import './App.scss';
-import './iconfont/iconfont.css';
-import routeConfig from './router';
-import RouterGurad from './router/RouterGurad';
+import React from "react";
+import "./iconfont/iconfont.css";
+import routeConfig from "./router";
+import RouterGurad from "./router/RouterGurad";
 
 function App() {
   return (

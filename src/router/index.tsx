@@ -1,13 +1,13 @@
 import NotFound from "@/pages/NotFound";
 import type { RouteObject } from "react-router-dom";
 import { Navigate } from "react-router-dom";
-import demo from "./module/demo";
+import portal from "./module/portal";
 
 const routeConfig = [
-  ...demo,
+  ...portal,
   {
     path: "/",
-    element: <Navigate to="/demo" replace />,
+    element: <Navigate to="/portal" replace />,
   },
   {
     path: "*",

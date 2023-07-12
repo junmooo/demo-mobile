@@ -1,58 +1,47 @@
 // https://github.com/dilanx/craco/blob/master/packages/craco/README.md#configuration-file
 // https://www.npmjs.com/package/craco-babel-loader
-import path from 'path';
-import config from './src/config';
+import path from "path";
+import config from "./src/config";
+const CracoLessPlugin = require("craco-less");
 
 const pathResolve = (pathUrl: string) => path.join(__dirname, pathUrl);
 
-export default async function () {
+const cracoConfig = async () => {
   return {
     webpack: {
       alias: {
-        '@': pathResolve('./src'),
+        "@": pathResolve("./src"),
       },
     },
     // 代理接口
     devServer: {
       // https: true,
       proxy: config.proxy || {
-        '/api': {
+        "/api": {
           target: `https://uatapp02.easyhro.com`,
           changeOrigin: true,
           pathRewrite: {
-            '^/api': '',
+            "^/api": "",
           },
         },
       },
     },
-    style: {
-      sass: {
-        loaderOptions: {
-          sourceMap: true,
-          additionalData: `@import "@nutui/nutui-react/dist/styles/variables.scss";@import "./src/theme/custom_theme.scss";` /* Any sass-loader configuration options: https://github.com/webpack-contrib/sass-loader. */,
-        },
+    plugins: [
+      {
+        plugin: CracoLessPlugin,
       },
-    },
+    ],
     babel: {
       plugins: [
         [
-          'import',
+          "formatjs",
           {
-            libraryName: '@nutui/nutui-react',
-            libraryDirectory: 'dist/esm',
-            style: true,
-            camel2DashComponentName: false,
-          },
-          'nutui-react',
-        ],
-        [
-          'formatjs',
-          {
-            idInterpolationPattern: '[sha512:contenthash:base64:6]',
+            idInterpolationPattern: "[sha512:contenthash:base64:6]",
             ast: true,
           },
         ],
       ],
     },
   };
-}
+};
+export default cracoConfig;

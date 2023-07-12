@@ -1,0 +1,91 @@
+.container {
+  // background-image: url("/assets/img/back.png");
+  width: 100vw;
+  height: 100vh;
+
+  .header {
+    background-color: rgb(0, 0, 0);
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ccc;
+
+    .title {
+      width: calc(100vw - 100px);
+      text-align: center;
+    }
+  }
+
+  .banner {
+    height: 120px;
+    background-image: url("/assets/img/banner.jpg");
+    background-size: cover;
+
+    .text {
+      color: #555;
+      padding-top: 20px;
+      padding-left: 20px;
+      font-size: 13px;
+    }
+  }
+
+  .textCtn {
+    margin: 30PX;
+    font-size: 13px;
+    font-weight: bold;
+    color: #777;
+
+
+    p {
+      margin: 10px 0 10px;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #222;
+    }
+
+  }
+
+  .sys1Box {
+    background-color: #fefefe;
+    padding: 20px;
+    text-align: center;
+    color: #555;
+    font-size: 13px;
+    line-height: 26px;
+
+    .text {
+      color: #555;
+      font-size: 13px;
+      padding: 0 30px 0;
+    }
+
+    .boxTit {
+      color: green;
+      font-size: 20px;
+      padding-bottom: 20px;
+
+      &::before,
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 20%;
+        margin: 5px 1%;
+        border-bottom: 1px solid green;
+      }
+    }
+  }
+
+  .wechat {
+    padding: 10px;
+    border-radius: 15px;
+    background-color: rgba(2255, 255, 255, 0.8);
+    position: fixed;
+    top: 40vh;
+    right: 10px;
+  }
+
+}
